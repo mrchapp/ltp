@@ -50,6 +50,20 @@
 #define NUMSIGS NSIG
 #endif
 
+#ifndef SIGRTMIN
+# define SIGRTMIN (__libc_current_sigrtmin ())
+#endif
+
+#ifndef SIGRTMAX
+# define SIGRTMAX (__libc_current_sigrtmax ())
+#endif
+
+#ifndef __SIGRTMIN
+# define __SIGRTMIN 32
+#endif
+#ifndef __SIGRTMAX
+# define __SIGRTMAX (_NSIG - 1)
+#endif
 
 /* defines for unexpected signal setup routine (set_usig.c) */
 #define FORK    1		/* SIGCHLD is to be ignored */
